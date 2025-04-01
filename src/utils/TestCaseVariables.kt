@@ -26,6 +26,8 @@ object TestCaseVariables {
         Ipv4Tester(name = "More than 4 octets", ipv4 = "192.168.1.1.1", result = false),
         Ipv4Tester(name = "Empty octet between dots", ipv4 = "192.168..1", result = false),
         Ipv4Tester(name = "Third octet has a single leading zero", ipv4 = "192.168.01.1", result = false),
-        Ipv4Tester(name = "Non-numeric input", ipv4 = "abc.def.ghi.jkl", result = false)
+        Ipv4Tester(name = "Letter input", ipv4 = "abc.def.ghi.jkl", result = false),
+        Ipv4Tester(name = "Symbol input", ipv4 = "%$$.###.!.&&&", result = false),
+        Ipv4Tester(name = "Ultra-Mixed Input", ipv4 = "%$#.asd.1.001", result = false)
     )
 }

@@ -10,7 +10,14 @@ fun ipv4Checker(ipv4: String): Boolean {
         return false
     }
     val startWithZeroRegex = Regex("^0\\d{1,2}$") // This is a regular expression which checks if the octets the IP has starts with a 0 or not
-    return octets.none { // Here we returns true if the octets of the IP does not match the regex which means that this is a valid IP
-        it.matches(startWithZeroRegex) // Returns false if the octet starts with a Zero or double Zero
+    val containsNonDigitRegex = Regex(".*[^0-9].*") // This regular expression checks if the octet contains a letter
+
+    return octets.all { octet ->
+        // Check if the octet contains any non-digit characters or starts with a leading zero
+        !octet.matches(containsNonDigitRegex) &&
+                !octet.matches(startWithZeroRegex) && // ensure no octet starts with leading zero
+                octet.toIntOrNull()?.let { num ->
+                    num in 0..255 // ensures the number is between 0 and 255
+                } == true
     }
 }
