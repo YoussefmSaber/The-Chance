@@ -1,6 +1,19 @@
 package week1.ipv4_checker
 
+import utils.TestCaseVariables
+import utils.test
+
 
 fun main () {
-    println("hello test world")
+    ipv4TestCases()
+}
+
+fun ipv4TestCases() {
+    TestCaseVariables.ipv4TestCases.forEach { testCase ->
+        test(
+            testCase.name,
+            ipv4Checker( testCase.ipv4),
+            true
+        )
+    }
 }
