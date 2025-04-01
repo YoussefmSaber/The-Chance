@@ -2,7 +2,11 @@ package utils
 
 import week1.ipv4_checker.Ipv4Tester
 
+
+// This Objects will contain all the test cases for each week task
 object TestCaseVariables {
+    // region week1
+        // region IPv4
     val ipv4TestCases = listOf(
         // ✅ Valid IPs (Should Pass)
         Ipv4Tester(name = "Standard valid IP", ipv4 = "192.168.1.1", result = true),
@@ -30,4 +34,7 @@ object TestCaseVariables {
         Ipv4Tester(name = "Symbol input", ipv4 = "%$$.###.!.&&&", result = false),
         Ipv4Tester(name = "Ultra-Mixed Input", ipv4 = "%$#.asd.1.001", result = false)
     )
+    // endregion
+
+    // endregion
 }
