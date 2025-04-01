@@ -13,7 +13,7 @@ fun ipv4TestCases() {
         test(
             testCase.name,
             ipv4Checker( testCase.ipv4),
-            true
+            testCase.result
         )
     }
 }
