@@ -24,6 +24,7 @@ fun main() {
  */
 fun sudokuChecker(puzzle: List<List<Char>>): Boolean {
     // getting the puzzle size to create the size of the arrays
+    // region initializing some variables
     val puzzleSize = puzzle.size
 
     /**
@@ -34,25 +35,27 @@ fun sudokuChecker(puzzle: List<List<Char>>): Boolean {
     val columnNumbers = Array(puzzleSize) { mutableSetOf<Char>() }
 
     val subgridSize = sqrt(puzzleSize.toDouble()).toInt() // Ensure integer division
+    // endregion
+    // region iterating over all the sudoku items
     for (row in 0..<puzzleSize) {
         for (column in 0..<puzzleSize) {
 
-            val char = puzzle[row][column] // getting the current char
+            val cell = puzzle[row][column] // getting the current char
 
-            if (char == '-') continue // if this filed is empty skip it
+            if (cell == '-') continue // if this filed is empty skip it
 
             val subgridIndex =
                 (row / subgridSize) * subgridSize + (column / subgridSize) // getting the which sub-grid are we in right now
 
             // if the current character is found in any of the following then this is not a valid puzzle (row, column, sub-grid)
-            if (char in boxNumbers[subgridIndex] || char in rowNumbers[row] || char in columnNumbers[column]) return false
+            if (cell in boxNumbers[subgridIndex] || cell in rowNumbers[row] || cell in columnNumbers[column]) return false
 
             // add the current character to the current (sub-grid, row, column)
-            boxNumbers[subgridIndex].add(char)
-            rowNumbers[row].add(char)
-            columnNumbers[column].add(char)
+            boxNumbers[subgridIndex].add(cell)
+            rowNumbers[row].add(cell)
+            columnNumbers[column].add(cell)
         }
     }
-
+    // endregion
     return true
 }
