@@ -4,6 +4,13 @@ fun main() {
      print(ipv4Checker("192.168.1.1"))
 }
 
+/**
+ * This function is made to check if the entered IPv4
+ * is a valid IP or not
+ *
+ * @param ipv4 a simple IPv4 string
+ * @return Boolean which indicates if the IP is valid or not
+ */
 fun ipv4Checker(ipv4: String): Boolean {
     val octets = ipv4.split(".") // splitting the IPv4 to octets (the octet is the name of the 3 digits in the IP -> 100 in 100.1.0.2)
 
