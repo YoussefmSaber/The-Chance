@@ -16,7 +16,7 @@ object TestCaseVariables {
         Ipv4Tester(name = "Leading zero in second octet", ipv4 = "192.068.1.1", result = false),
         Ipv4Tester(name = "Leading zero in third octet", ipv4 = "192.168.007.1", result = false),
         Ipv4Tester(name = "Leading zero in fourth octet", ipv4 = "192.168.1.099", result = false),
-        Ipv4Tester(name = "All octets have leading zeros", ipv4 = "002.010.009.128", result = false),
+        Ipv4Tester(name = "All octets have leading zeros", ipv4 = "002.010.009.028", result = false),
         Ipv4Tester(name = "First octet is just `0`", ipv4 = "0.1.2.3", result = false),
         Ipv4Tester(name = "Fourth octet exceeds 255", ipv4 = "192.168.1.256", result = false),
         Ipv4Tester(name = "First octet exceeds 255", ipv4 = "300.168.1.1", result = false),
