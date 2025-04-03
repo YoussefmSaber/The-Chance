@@ -5,5 +5,3 @@ data class SudokuTester(
     val puzzle: List<List<Char>>,
     val isSolvable: Boolean
 )
-
-
