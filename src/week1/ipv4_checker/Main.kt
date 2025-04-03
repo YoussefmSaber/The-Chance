@@ -25,10 +25,7 @@ fun ipv4Checker(ipv4: String): Boolean {
     if (octets.size != 4) { // checks if the number of the octets not equals 4 which means this is invalid IPv4
         return false
     }
-    // Check if the first octet is "0", "00", "000", etc.
-    if (octets[0].toIntOrNull() == 0) {
-        return false
-    }
+
     return checkOctetValues(octets)
 }
 
@@ -39,6 +36,7 @@ fun checkOctetValues(octets: List<String>): Boolean {
 
     return octets.all { octet ->
         when {
+            octet.isEmpty() -> false
             octet.matches(containsNonDigitRegex) -> false
             octet.matches(startWithZeroRegex) -> false
             octet.toIntOrNull()?.let { it !in 0..255 } == true -> false
