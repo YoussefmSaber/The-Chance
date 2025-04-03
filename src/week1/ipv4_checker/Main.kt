@@ -1,3 +1,9 @@
+/**
+ * @author: Youssef Mohammed
+ *
+ * This is a simple IPv4 checker which checks if the IPv4 address is valid or not
+ */
+
 package week1.ipv4_checker
 
 fun main() {

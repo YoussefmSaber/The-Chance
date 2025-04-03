@@ -1,3 +1,9 @@
+/**
+ * @author: Youssef Mohammed
+ *
+ * This is a simple sudoku checker which checks if the sudoku puzzle is valid or not
+ */
+
 package week1.sudoku_checker
 
 import kotlin.math.sqrt
@@ -24,7 +30,6 @@ fun main() {
  */
 fun sudokuChecker(puzzle: List<List<Char>>): Boolean {
     // getting the puzzle size to create the size of the arrays
-    // region initializing some variables
     val puzzleSize = puzzle.size
 
     /**
@@ -35,14 +40,14 @@ fun sudokuChecker(puzzle: List<List<Char>>): Boolean {
     val columnNumbers = Array(puzzleSize) { mutableSetOf<Char>() }
 
     val subgridSize = sqrt(puzzleSize.toDouble()).toInt() // Ensure integer division
-    // endregion
+
     // region iterating over all the sudoku items
-    for (row in 0..<puzzleSize) {
-        for (column in 0..<puzzleSize) {
+    sudokuRowLoop@ for (row in 0..<puzzleSize) {
+        sudokuColumnLoop@ for (column in 0..<puzzleSize) {
 
             val cell = puzzle[row][column] // getting the current char
 
-            if (cell == '-') continue // if this filed is empty skip it
+            if (cell == '-') continue@sudokuColumnLoop // if this filed is empty skip it
 
             val subgridIndex =
                 (row / subgridSize) * subgridSize + (column / subgridSize) // getting the which sub-grid are we in right now
